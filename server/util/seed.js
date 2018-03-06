@@ -1,4 +1,4 @@
-var User = require('../api/user/userModel');
+/* var User = require('../api/user/userModel');
 var _ = require('lodash');
 var logger = require('./logger');
 logger.log('Seeding the Database');
@@ -44,3 +44,4 @@ cleanDB()
   .then(createUsers)
   .then(logger.log.bind(logger))
   .catch(logger.log.bind(logger));
+ */

@@ -11,8 +11,19 @@ var ProjectSchema = new Schema({
   description: {
     type: String
   },
+  assigned: {
+    type: Boolean,
+    required: true
+  },
+  disabled: {
+    type: Boolean,
+    required: true
+  },
 
-  client: {type: Schema.Types.ObjectId, ref: 'client',required:true},
+  rate:{
+    type: Number,
+    required: true
+  },
 
   log: [{date:{
       type:Date,
@@ -21,7 +32,8 @@ var ProjectSchema = new Schema({
         time:{
             type:Number,
             required:true
-        }
+        },
+        user:{type: Schema.Types.ObjectId, ref: 'user',required:true}
 
 }]
 });

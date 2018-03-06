@@ -16,5 +16,10 @@ router.route('/:id')
   .delete(controller.delete)
 
 router.route('/log/:id')
-    .post(controller.log)
+    .post(checkUser,controller.log)
+
+router.route('/logs/:id')
+    .post(checkUser,controller.getLog)
+router.route('/adminlogs/:id')
+    .post(controller.getLogUsers)
 module.exports = router;

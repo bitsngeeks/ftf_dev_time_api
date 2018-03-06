@@ -19,7 +19,9 @@ exports.params = function(req, res, next, id) {
 };
 
 exports.get = function(req, res, next) {
-  User.find({})
+  var mysort = { role: -1 };
+  var mysort2 = { name: 1 };
+  User.find({}).sort(mysort)
     .then(function(users){
       res.json(users);
     }, function(err){
@@ -52,10 +54,14 @@ exports.post = function(req, res, next) {
   var newUser = new User(req.body);
 
   newUser.save(function(err, user) {
-    if(err) {next(err);}
+    if(err) {
+      next(err);
+    }else{
+      var token = signToken(user._id);
+      res.json({token: token});
+    }
 
-    var token = signToken(user._id);
-    res.json({token: token});
+    
   });
 };
 

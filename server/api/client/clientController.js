@@ -4,8 +4,8 @@ var logger = require('../../util/logger');
 
 exports.params = function(req, res, next, id) {
   Client.findById(id)
-/*     .populate('project')
-    .exec() */
+    .populate('projects')
+    .exec()
     .then(function(client) {
       if (!client) {
         next(new Error('No client with that id'));
@@ -20,8 +20,8 @@ exports.params = function(req, res, next, id) {
 
 exports.get = function(req, res, next) {
   Client.find({})
-/*     .populate('project')
-    .exec() */
+    .populate('projects')
+    .exec()
     .then(function(clients){
       res.json(clients);
     }, function(err){
@@ -36,9 +36,15 @@ exports.getOne = function(req, res, next) {
 
 exports.put = function(req, res, next) {
   var client = req.client;
-
   var update = req.body;
+  if(req.body.projects){
+    update = client;
+    update.projects = req.body.projects;
+  }
 
+  
+  
+  console.log(req.body)
   _.merge(client, update);
 
   client.save(function(err, saved) {
