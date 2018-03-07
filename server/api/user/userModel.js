@@ -24,7 +24,11 @@ var UserSchema = new Schema({
   email:{
     type:String,
     required:true
-  }
+  },
+  seller: {
+    type: Boolean,
+    required: true
+  },
 });
 
 UserSchema.pre('save', function(next) {
