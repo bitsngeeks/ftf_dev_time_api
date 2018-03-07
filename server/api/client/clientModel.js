@@ -13,7 +13,10 @@ var ClientSchema = new Schema({
     required: true
   },
 
-  seller: {type: String, required:true},
+  seller: {
+    type: String, 
+    required:true
+  },
 
   projects: [{type: Schema.Types.ObjectId, ref: 'project'}]   
   
