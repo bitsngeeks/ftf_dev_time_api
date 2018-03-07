@@ -15,7 +15,7 @@ var ClientSchema = new Schema({
 
   seller: {type: String, required:true},
 
-  projects: [{type: Schema.Types.ObjectId, ref: 'project',unique:true}]   
+  projects: [{type: Schema.Types.ObjectId, ref: 'project'}]   
   
   
 });
