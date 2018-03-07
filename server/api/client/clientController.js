@@ -41,10 +41,6 @@ exports.put = function(req, res, next) {
     update = client;
     update.projects = req.body.projects;
   }
-  if(req.body.seller){
-    update = client;
-    update.seller = req.body.seller;
-  }
 
   
   
