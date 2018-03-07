@@ -35,9 +35,7 @@ var ProjectSchema = new Schema({
         },
         user:{type: Schema.Types.ObjectId, ref: 'user',required:true}
 
-}],
-  seller: {type: Schema.Types.ObjectId, ref: 'user',required:true}
-  
+}]
 });
 
 module.exports = mongoose.model('project', ProjectSchema);

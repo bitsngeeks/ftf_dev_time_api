@@ -13,7 +13,10 @@ var ClientSchema = new Schema({
     required: true
   },
 
-  projects: [{type: Schema.Types.ObjectId, ref: 'project',unique:true}]
+  projects: [{type: Schema.Types.ObjectId, ref: 'project',unique:true}],
+    
+  seller: {type: Schema.Types.ObjectId, ref: 'user',required:false}
+  
 });
 
 module.exports = mongoose.model('client', ClientSchema);
