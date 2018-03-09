@@ -11,8 +11,7 @@ var TrackerSchema = new Schema({
   user: {type: Schema.Types.ObjectId, ref: 'user', required: true},
 
   time: {
-    type: Number,
-    required: true
+    type: Number
   }
 });
 
