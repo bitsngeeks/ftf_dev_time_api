@@ -7,6 +7,8 @@ var TrackerSchema = new Schema({
     required: true
   },
   project: {type: Schema.Types.ObjectId, ref: 'project', required: true},
+  
+  user: {type: Schema.Types.ObjectId, ref: 'user', required: true},
 
   time: {
     type: Number,
